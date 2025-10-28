@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "textutils"
+version = "0.1.0"
+description = "Small text utilities package for the group assignment"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.hatch.build.targets.wheel]
+packages = [{ include = "textutils", from = "src" }]
