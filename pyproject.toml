@@ -10,4 +10,4 @@ readme = "README.md"
 requires-python = ">=3.10"
 
 [tool.hatch.build.targets.wheel]
-packages = [{ include = "textutils", from = "src" }]
+packages = ["src/textutils"]
