@@ -17,12 +17,22 @@ def remove_punctuation(text: str) -> str:
     """Remove all punctuation from the text."""
     return re.sub(r'[^\w\s]', '', text)
 
-def is_palindrome(text: str) -> bool: 
+def is_palindrome(text: str | None = None) -> bool: 
     """Check if the given text is a palindrome, ignoring case and non-alphanumeric characters."""
+    if text is None:
+        print("No text provided")
+        return False 
     cleaned = re.sub(r'[^A-Za-z0-9]', '', text).lower()
+    if len(cleaned) < 2:
+        return False
     return cleaned == cleaned[::-1]
 
-def is_palindrome_number(num: int) -> bool:
+def is_palindrome_number(num: int | None = None) -> bool:
     """Check if the given integer is a palindrome."""
+    if num is None:
+        print("No number provided") 
+        return False
     str_num = str(num)
+    if len(str_num) < 2:
+        return False
     return str_num == str_num[::-1]

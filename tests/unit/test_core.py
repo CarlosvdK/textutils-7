@@ -21,7 +21,11 @@ def test_is_palindrome_phrase():
     assert c.is_palindrome("A man a plan a canal Panama") == True
     assert c.is_palindrome("No 'x' in Nixon") == True
     assert c.is_palindrome("Hello, World!") == False
+    assert c.is_palindrome("") == False  # empty string is not a palindrome in my opinion
+    assert c.is_palindrome() == False
     
 def test_is_palindrome_for_integers():
     assert c.is_palindrome_number(12321) == True
     assert c.is_palindrome_number(12345) == False
+    assert c.is_palindrome_number(0) == False # single digit is not a palindrome in my opinion
+    assert c.is_palindrome_number() == False 
