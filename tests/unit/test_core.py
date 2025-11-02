@@ -21,3 +21,7 @@ def test_is_palindrome_phrase():
     assert c.is_palindrome("A man a plan a canal Panama") == True
     assert c.is_palindrome("No 'x' in Nixon") == True
     assert c.is_palindrome("Hello, World!") == False
+    
+def test_is_palindrome_for_integers():
+    assert c.is_palindrome_number(12321) == True
+    assert c.is_palindrome_number(12345) == False

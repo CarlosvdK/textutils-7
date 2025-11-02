@@ -21,3 +21,8 @@ def is_palindrome(text: str) -> bool:
     """Check if the given text is a palindrome, ignoring case and non-alphanumeric characters."""
     cleaned = re.sub(r'[^A-Za-z0-9]', '', text).lower()
     return cleaned == cleaned[::-1]
+
+def is_palindrome_number(num: int) -> bool:
+    """Check if the given integer is a palindrome."""
+    str_num = str(num)
+    return str_num == str_num[::-1]
