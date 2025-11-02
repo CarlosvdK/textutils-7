@@ -16,3 +16,8 @@ def test_remove_punctuation():
     text_2 = "!!!...,,,;;;'''\"\"\""
     assert c.remove_punctuation(text_1) == "Hello world How are you Im doing a test"
     assert c.remove_punctuation(text_2) == "" #make sure all punctuation is removed and not changed to spaces
+    
+def test_is_palindrome_phrase():
+    assert c.is_palindrome("A man a plan a canal Panama") == True
+    assert c.is_palindrome("No 'x' in Nixon") == True
+    assert c.is_palindrome("Hello, World!") == False
