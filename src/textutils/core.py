@@ -12,3 +12,7 @@ def word_count(text: str) -> dict:
 def normalize_whitespace(text: str) -> str:
     """Collapse runs of whitespace (spaces/tabs/newlines) to single spaces and trim edges."""
     return " ".join(text.split())
+
+def remove_punctuation(text: str) -> str:
+    """Remove all punctuation from the text."""
+    return re.sub(r'[^\w\s]', '', text)

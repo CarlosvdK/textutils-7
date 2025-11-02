@@ -9,3 +9,10 @@ def test_normalize_whitespace_basic():
     assert c.normalize_whitespace("a   b\t c\n") == "a b c"
 def test_normalize_whitespace_trims_edges():
     assert c.normalize_whitespace("   hello   ") == "hello"
+
+# Sara - feature for remove_punctuation branch
+def test_remove_punctuation():
+    text_1 = "Hello, world! How are you? I'm doing a test."
+    text_2 = "!!!...,,,;;;'''\"\"\""
+    assert c.remove_punctuation(text_1) == "Hello world How are you Im doing a test"
+    assert c.remove_punctuation(text_2) == "" #make sure all punctuation is removed and not changed to spaces
