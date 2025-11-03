@@ -114,3 +114,22 @@ def strip_accents(text: str) -> str:
     normalized = unicodedata.normalize("NFKD", text)
     stripped = "".join(ch for ch in normalized if not unicodedata.combining(ch))
     return unicodedata.normalize("NFC", stripped)
+
+def strip_accents(text: str) -> str:
+    if not text:
+        return ""
+    normalized = unicodedata.normalize("NFKD", text)
+    stripped = "".join(ch for ch in normalized if not unicodedata.combining(ch))
+    return unicodedata.normalize("NFC", stripped)
+
+def slugify(text: str) -> str:
+    """Convert text to lowercase, hyphen-separated, URL-safe slug."""
+    if not text:
+        return ""
+
+    text = strip_accents(text)
+    text = text.lower()
+    text = re.sub(r"[^\w\s-]", "", text)   # remove punctuation & emoji
+    text = re.sub(r"[\s-]+", "-", text)    # collapse only spaces & hyphens
+    text = text.strip("-")
+    return text

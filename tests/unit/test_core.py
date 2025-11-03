@@ -66,3 +66,22 @@ def test_strip_accents_removes_diacritics():
     text = "こんにちは Москва résumé"
     assert c.strip_accents(text) == "こんにちは Москва resume"
     assert c.strip_accents("") == ""
+
+def test_slugify_lowercase_hyphen_safe():
+    assert c.slugify("Hello, World! 2025") == "hello-world-2025"
+    assert c.slugify("Café déjà vu") == "cafe-deja-vu"
+    assert c.slugify("Multiple    spaces") == "multiple-spaces"
+    assert c.slugify("Symbols & punctuation!") == "symbols-punctuation"
+    assert c.slugify("MiXeD CaSe Text") == "mixed-case-text"
+    assert c.slugify("trailing---hyphens---") == "trailing-hyphens"
+    assert c.slugify("underscores_are_okay") == "underscores_are_okay"
+    assert c.slugify("Emoji ☕ test") == "emoji-test"
+    assert c.slugify("") == ""
+
+
+def test_slugify_collapses_hyphens_and_trims():
+    assert c.slugify("  A---B  ") == "a-b"
+    assert c.slugify("A--B--C") == "a-b-c"
+    assert c.slugify("--Leading and trailing--") == "leading-and-trailing"
+    assert c.slugify("   Spaces   and---hyphens  ") == "spaces-and-hyphens"
+    assert c.slugify("Already-Slugified-Text") == "already-slugified-text"
