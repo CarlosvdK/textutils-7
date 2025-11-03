@@ -53,26 +53,26 @@ pytest --cov=src/textutils --cov-report=term-missing
 ```
 ## Features
 
-word_count(text) — case-insensitive counts.
-top_n(counts, n) — top-N by frequency, ties alphabetical.
-normalize_whitespace(text) — collapse runs of whitespace, trim ends.
-remove_punctuation(text) — strip punctuation while keeping spaces and letters.
-is_palindrome(text) — check if text reads the same backwards (ignore case and spaces).
-unique_words(text) — return a sorted list of distinct words (case-insensitive).
-reverse_words(text) — reverse the order of words, not characters.
-capitalize_sentences(text) — ensure each sentence starts with a capital letter.
-word_lengths(text) — return a dict mapping words to their lengths.
-strip_accents(text) — remove accents from characters (e.g., café → cafe).
-slugify(text) — convert text to lowercase, hyphen-separated safe string.
-count_vowels(text) — count vowels in the given text.
-camel_to_snake(text) — convert CamelCase identifiers to snake_case.
-truncate(text, n) — shorten text to n characters, adding “...” if needed.
-collapse_duplicates(text, char) — replace runs of the same char with one.
-is_anagram(a, b) — check if two texts are anagrams (ignore case and spaces).
-compare_texts(text1, text2) — compute similarity based on common word ratio.
-replace_numbers(text) — replace digits with their word equivalents (2 → two).
-sentence_count(text) — count number of sentences in text.
-average_word_length(text) — compute mean length of words in text.
+- word_count(text) — case-insensitive counts.
+- top_n(counts, n) — top-N by frequency, ties alphabetical.
+- normalize_whitespace(text) — collapse runs of whitespace, trim ends.
+- remove_punctuation(text) — strip punctuation while keeping spaces and letters.
+- is_palindrome(text) — check if text reads the same backwards (ignore case and spaces).
+- unique_words(text) — return a sorted list of distinct words (case-insensitive).
+- reverse_words(text) — reverse the order of words, not characters.
+- capitalize_sentences(text) — ensure each sentence starts with a capital letter.
+- word_lengths(text) — return a dict mapping words to their lengths.
+- strip_accents(text) — remove accents from characters (e.g., café → cafe).
+- slugify(text) — convert text to lowercase, hyphen-separated safe string.
+- count_vowels(text) — count vowels in the given text.
+- camel_to_snake(text) — convert CamelCase identifiers to snake_case.
+- truncate(text, n) — shorten text to n characters, adding “...” if needed.
+- collapse_duplicates(text, char) — replace runs of the same char with one.
+- is_anagram(a, b) — check if two texts are anagrams (ignore case and spaces).
+- compare_texts(text1, text2) — compute similarity based on common word ratio.
+- replace_numbers(text) — replace digits with their word equivalents (2 → two).
+- sentence_count(text) — count number of sentences in text.
+- average_word_length(text) — compute mean length of words in text.
 
 
 ## Project Description
@@ -101,13 +101,35 @@ This project emphasized effective teamwork through Git-based collaboration. Each
 
 ## Project Structure
 The final repository follows the expected structure:
+
+```text
 textutils-7/
-├─ src/textutils/
-│  ├─ __init__.py
-│  ├─ core.py
-├─ tests/
-│  ├─ unit/test_core.py
-│  ├─ integration/test_end_to_end.py
+├─ src/textutils/__init__.py
+├─ src/textutils/core.py
+├─ tests/unit/test_core.py
+├─ tests/integration/test_end_to_end.py
 ├─ environment.yml
 ├─ pyproject.toml
 ├─ README.md
+```
+
+**Explanation of the structure:**
+
+* **`src/textutils/`** – this folder contains the actual **Python package code**.
+  Inside it:
+
+  * `__init__.py` marks the directory as a package, allowing imports like `import textutils`.
+  * `core.py` is where you will implement the main functionality of the project.
+
+* **`tests/`** – this folder contains all the **automated tests** for your code.
+  It is divided into:
+
+  * `tests/unit/` → short, focused tests for individual functions (TDD work happens here).
+  * `tests/integration/` → tests that check how different parts of the code work together.
+
+* **`environment.yml`** – defines the **micromamba environment** (Python version, dependencies, etc.) so everyone on the team can reproduce the same setup easily.
+
+* **`pyproject.toml`** – contains **project configuration**, including pytest and coverage settings.
+
+* **`README.md`** – the **documentation** of your project: describe what the package does, how to install dependencies, and how to run the tests.
+
