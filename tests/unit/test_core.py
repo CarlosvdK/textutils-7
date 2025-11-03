@@ -109,3 +109,22 @@ def test_slugify_collapses_hyphens_and_trims():
 )
 def test_camel_to_snake_basic(src, dst):
     assert c.camel_to_snake(src) == dst
+
+def test_truncate_shortens_to_n_chars_with_ellipsis_if_needed():
+    assert c.truncate("hello world", 7) == "hello…"
+    assert c.truncate("abcdef", 3) == "ab…"
+    assert c.truncate("truncate me please", 10) == "truncate…"
+    assert c.truncate("edgecase", 1) == "…"
+    assert c.truncate("emoji 😊 test", 8) == "emoji …"
+    assert c.truncate("", 5) == ""
+    assert c.truncate("a", 1) == "a"
+    assert c.truncate("a", 0) == "…"
+
+
+def test_truncate_returns_same_if_short_enough():
+    assert c.truncate("cat", 5) == "cat"
+    assert c.truncate("hi", 2) == "hi"
+    assert c.truncate("short", 10) == "short"
+    assert c.truncate("", 1) == ""
+    assert c.truncate("x", 1) == "x"
+

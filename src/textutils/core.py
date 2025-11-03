@@ -150,3 +150,28 @@ def camel_to_snake(text: str) -> str:
     core = core.lower()
     
     return f"{leading}{core}{trailing}"
+
+def truncate(text: str, n: int) -> str:
+    """Shorten text to n chars, adding '…' if needed."""
+    if text is None:
+        return ""
+    if n <= 0:
+        return "…"
+    if len(text) <= n:
+        return text
+    if n == 1:
+        return "…"
+
+    slice_text = text[: n - 1]
+
+    # Remove trailing non-word, non-space chars (e.g., emoji, punctuation).
+    # If we removed something, keep any trailing space (e.g., "emoji …").
+    # If we didn't remove anything, trim trailing spaces (e.g., "hello…").
+   
+    without_trailing_symbols = re.sub(r"[^\w\s]+$", "", slice_text)
+    if without_trailing_symbols == slice_text:
+        slice_text = slice_text.rstrip()
+    else:
+        slice_text = without_trailing_symbols
+
+    return slice_text + "…"
