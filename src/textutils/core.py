@@ -46,3 +46,29 @@ def reverse_words(text: str | None = None) -> str:
     reversed_words = [word[::-1] for word in words]
     return ' '.join(reversed_words)
 
+def capitalize_sentences(text: str | None = None) -> str:
+    """Capitalize the first letter of each sentence, handling punctuation and whitespace."""
+    if not text:
+        return ""
+
+    parts = re.split(r'([.?!])', text)
+    result = []
+
+    sentence = ""
+    for part in parts:
+        if part in ".?!":
+
+            cleaned = sentence.strip()
+            if cleaned:
+                result.append(cleaned.capitalize() + part)
+            sentence = ""
+        else:
+
+            sentence += part
+
+    cleaned = sentence.strip()
+    if cleaned:
+        result.append(cleaned.capitalize())
+
+    return " ".join(result)
+

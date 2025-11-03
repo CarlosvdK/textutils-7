@@ -35,3 +35,10 @@ def test_reverse_words():
     assert c.reverse_words("  Leading and trailing spaces  ") == "gnidaeL dna gniliart secaps"
     assert c.reverse_words("") == ""
     assert c.reverse_words() == ""
+    
+def test_capitalize_sentences_starts_each_sentence_with_capital():
+    text = "hello world. how are you? i'm fine!  spaces."
+    assert c.capitalize_sentences(text) == "Hello world. How are you? I'm fine! Spaces."
+
+def test_capitalize_sentences_handles_leading_whitespace():
+    assert c.capitalize_sentences("   hi.  there.") == "Hi. There."
