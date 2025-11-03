@@ -1,4 +1,5 @@
 import textutils.core as c
+import pytest
 
 def test_word_count_basic():
        text = "Red red BLUE"
@@ -85,3 +86,26 @@ def test_slugify_collapses_hyphens_and_trims():
     assert c.slugify("--Leading and trailing--") == "leading-and-trailing"
     assert c.slugify("   Spaces   and---hyphens  ") == "spaces-and-hyphens"
     assert c.slugify("Already-Slugified-Text") == "already-slugified-text"
+
+@pytest.mark.parametrize(
+    "src, dst",
+    [
+        ("CamelCase", "camel_case"),
+        ("HTTPServerError", "http_server_error"),
+        ("simple", "simple"),
+        ("AWord", "a_word"),
+        ("XMLHttpRequest", "xml_http_request"),
+        ("parseJSON", "parse_json"),
+        ("already_snake_case", "already_snake_case"),
+        ("_PrivateVar", "_private_var"),
+        ("Version2Update", "version2_update"),
+        ("UserID123", "user_id123"),
+        ("GetXValue", "get_x_value"),
+        ("API", "api"),
+        ("MyClass_", "my_class_"),
+        ("", ""),
+        ("tEsTiNgCaSe", "t_es_ti_ng_ca_se"),
+    ],
+)
+def test_camel_to_snake_basic(src, dst):
+    assert c.camel_to_snake(src) == dst

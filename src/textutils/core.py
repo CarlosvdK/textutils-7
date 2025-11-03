@@ -133,3 +133,20 @@ def slugify(text: str) -> str:
     text = re.sub(r"[\s-]+", "-", text)    # collapse only spaces & hyphens
     text = text.strip("-")
     return text
+
+def camel_to_snake(text: str) -> str:
+    if not text:
+        return ""
+
+    # Preserve leading and trailing underscores
+    leading = re.match(r"^_+", text)
+    trailing = re.search(r"_+$", text)
+    leading = leading.group(0) if leading else ""
+    trailing = trailing.group(0) if trailing else ""
+
+    core = text.strip("_")
+    core = re.sub(r"(?<=[a-z0-9])([A-Z])", r"_\1", core)
+    core = re.sub(r"([A-Z]+)([A-Z][a-z])", r"\1_\2", core)
+    core = core.lower()
+    
+    return f"{leading}{core}{trailing}"
