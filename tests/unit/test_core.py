@@ -134,3 +134,16 @@ def test_collapse_duplicates():
     assert c.collapse_duplicates(text, '.') == "hello!!! world??? yes."
     assert c.collapse_duplicates("aaabbbccc", 'a') == "abbbccc"
 
+
+@pytest.mark.parametrize(
+    "a,b,expected",
+    [
+        ("Listen", "Silent", True),
+        ("Dormitory", "Dirty room!!", True),
+        ("Astronomer", "Moon starer", True),
+        ("Hello", "Olelhh", False),
+    ],
+)
+def test_is_anagram_ignores_case_space_punct(a, b, expected):
+    assert c.is_anagram(a, b) is expected
+

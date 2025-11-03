@@ -178,3 +178,10 @@ def truncate(text: str, n: int) -> str:
 
 def collapse_duplicates(text, char):
     return re.sub(f'{re.escape(char)}+', char, text)
+
+
+def is_anagram(a: str, b: str) -> bool:
+    """Check if two texts are anagrams (ignore case, spaces, punctuation)."""
+    clean = lambda s: sorted(re.sub(r"[^a-z0-9]", "", s.lower()))
+    return clean(a) == clean(b)
+
