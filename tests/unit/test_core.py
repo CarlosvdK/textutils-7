@@ -147,3 +147,9 @@ def test_collapse_duplicates():
 def test_is_anagram_ignores_case_space_punct(a, b, expected):
     assert c.is_anagram(a, b) is expected
 
+def test_compare_texts_returns_ratio_between_0_and_1():
+    r1 = c.compare_texts("kitten", "sitting")
+    r2 = c.compare_texts("identical", "identical")
+    assert 0.0 <= r1 <= 1.0
+    assert r2 == 1.0
+    assert r2 >= r1

@@ -1,3 +1,4 @@
+from difflib import SequenceMatcher
 import re
 from collections import Counter
 import unicodedata
@@ -185,3 +186,7 @@ def is_anagram(a: str, b: str) -> bool:
     clean = lambda s: sorted(re.sub(r"[^a-z0-9]", "", s.lower()))
     return clean(a) == clean(b)
 
+
+def compare_texts(text1: str, text2: str) -> float:
+    """Compute similarity ratio between two strings."""
+    return SequenceMatcher(None, text1, text2).ratio()
