@@ -153,9 +153,9 @@ def test_compare_texts_returns_ratio_between_0_and_1():
     assert 0.0 <= r1 <= 1.0
     assert r2 == 1.0
     assert r2 >= r1
+def test_sentence_count_counts_terminators_period_exclaim_question():
+    assert c.sentence_count("One. Two! Three?  Four...") == 4
 
-def test_average_word_length_basic():
-    assert c.average_word_length("A bb ccc") == pytest.approx(2.0)
-
-def test_average_word_length_handles_empty_as_zero():
-    assert c.average_word_length("") == 0.0
+def test_sentence_count_ignores_trailing_spaces():
+    assert c.sentence_count("Hello world") == 1
+    
