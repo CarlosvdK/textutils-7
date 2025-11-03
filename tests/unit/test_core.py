@@ -153,6 +153,7 @@ def test_compare_texts_returns_ratio_between_0_and_1():
     assert 0.0 <= r1 <= 1.0
     assert r2 == 1.0
     assert r2 >= r1
+
 def test_sentence_count_counts_terminators_period_exclaim_question():
     assert c.sentence_count("One. Two! Three?  Four...") == 4
 
