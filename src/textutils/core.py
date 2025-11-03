@@ -175,3 +175,6 @@ def truncate(text: str, n: int) -> str:
         slice_text = without_trailing_symbols
 
     return slice_text + "…"
+
+def collapse_duplicates(text, char):
+    return re.sub(f'{re.escape(char)}+', char, text)

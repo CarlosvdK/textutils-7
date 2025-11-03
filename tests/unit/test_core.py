@@ -128,3 +128,9 @@ def test_truncate_returns_same_if_short_enough():
     assert c.truncate("", 1) == ""
     assert c.truncate("x", 1) == "x"
 
+def test_collapse_duplicates():
+    text = "hello!!! world??? yes..."
+    assert c.collapse_duplicates(text, '!') == "hello! world??? yes..."
+    assert c.collapse_duplicates(text, '.') == "hello!!! world??? yes."
+    assert c.collapse_duplicates("aaabbbccc", 'a') == "abbbccc"
+
