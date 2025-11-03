@@ -29,3 +29,9 @@ def test_is_palindrome_for_integers():
     assert c.is_palindrome_number(12345) == False
     assert c.is_palindrome_number(0) == False # single digit is not a palindrome in my opinion
     assert c.is_palindrome_number() == False 
+    
+def test_reverse_words():
+    assert c.reverse_words("Hello World") == "olleH dlroW"
+    assert c.reverse_words("  Leading and trailing spaces  ") == "gnidaeL dna gniliart secaps"
+    assert c.reverse_words("") == ""
+    assert c.reverse_words() == ""

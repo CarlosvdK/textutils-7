@@ -36,3 +36,13 @@ def is_palindrome_number(num: int | None = None) -> bool:
     if len(str_num) < 2:
         return False
     return str_num == str_num[::-1]
+
+def reverse_words(text: str | None = None) -> str:
+    """Reverse each word in the given text while ignoring extra spaces."""
+    if not text:
+        return ""
+    # Split by whitespace (not ' ') to ignore leading/trailing/multiple spaces
+    words = text.split()
+    reversed_words = [word[::-1] for word in words]
+    return ' '.join(reversed_words)
+
