@@ -190,3 +190,11 @@ def is_anagram(a: str, b: str) -> bool:
 def compare_texts(text1: str, text2: str) -> float:
     """Compute similarity ratio between two strings."""
     return SequenceMatcher(None, text1, text2).ratio()
+
+def average_word_length(text: str) -> float:
+    """Compute mean length of words in text."""
+    words = re.findall(r"\b\w+\b", text)
+    if not words:
+        return 0.0
+    return sum(len(w) for w in words) / len(words)
+
