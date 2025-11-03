@@ -6,11 +6,11 @@ Small Python package for text utilities — group assignment. These are the step
 
 Team 7 — Python for Data Science (Term 1)
 
-Sara Fibla 
-Ella Magdic 
-Georgii Runko
-Alexander Schumacher
-Carlos Van der Kooij
+-Sara Fibla 
+-Ella Magdic 
+-Georgii Runko
+-Alexander Schumacher
+-Carlos Van der Kooij
 
 Delivery Date: November 6, 2025
 
