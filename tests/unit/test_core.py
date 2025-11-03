@@ -53,3 +53,16 @@ def test_word_lengths_maps_each_word_to_length():
     assert c.word_lengths("") == {}
     assert c.word_lengths("abc123 var_name") == {"abc123": 6, "var_name": 8}
     assert c.word_lengths("café naïve") == {"café": 4, "naïve": 5}
+
+def test_strip_accents_removes_diacritics():
+    assert c.strip_accents("café déjà vu") == "cafe deja vu"
+    assert c.strip_accents("fiancée jalapeño über naïve façade") == \
+           "fiancee jalapeno uber naive facade"
+    assert c.strip_accents("ÉLÉPHANT À LA CRÈME BRÛLÉE") == "ELEPHANT A LA CREME BRULEE"
+    composed = "Cafe\u0301"  
+    assert c.strip_accents(composed) == "Cafe"
+    assert c.strip_accents("résumé 2.0!") == "resume 2.0!"
+    assert c.strip_accents("café ☕ résumé 💼") == "cafe ☕ resume 💼"
+    text = "こんにちは Москва résumé"
+    assert c.strip_accents(text) == "こんにちは Москва resume"
+    assert c.strip_accents("") == ""

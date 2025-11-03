@@ -97,3 +97,20 @@ def word_lengths(text: str | None = None) -> dict:
     # Use the words as they appear (case-sensitive) so "go" and "GO" are distinct keys
     return {w: len(w) for w in words}
 
+import unicodedata
+
+def strip_accents(text: str) -> str:
+    """Return text with diacritic accents removed, preserving non-Latin scripts and symbols.
+    
+    Examples:
+        "café déjà vu"     → "cafe deja vu"
+        "ÉLÉPHANT"         → "ELEPHANT"
+        "naïve façade"     → "naive facade"
+        "こんにちは résumé ☕" → "こんにちは resume ☕"
+    """
+    if not text:
+        return ""
+
+    normalized = unicodedata.normalize("NFKD", text)
+    stripped = "".join(ch for ch in normalized if not unicodedata.combining(ch))
+    return unicodedata.normalize("NFC", stripped)
