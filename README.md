@@ -1,6 +1,6 @@
 # textutils-7
 
-Small Python package for text utilities — group assignment. These are the steps we have followed in order to succesfully implement our features.
+Small Python package for text utilities — group assignment. These are the steps we have followed in order to succesfully implement the following features.
 
 ## Team
 
