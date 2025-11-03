@@ -4,7 +4,7 @@ Small Python package for text utilities — group assignment. These are the step
 
 ## Team
 
-Team 7 — Python for Data Science, Term 1, Group 6
+Team 7 — Python for Data Science (Term 1)
 
 Sara Fibla 
 Ella Magdic 
@@ -19,8 +19,8 @@ Delivery Date: November 6, 2025
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/msardamasri/textutils-6.git
-    cd textutils-6
+    git clone https://github.com/CarlosvdK/textutils-7.git
+    cd textutils-7
     ```
 
 2. Create the environment (with micromamba):
@@ -77,20 +77,15 @@ average_word_length(text) — compute mean length of words in text.
 
 ## Project Description
 
-This package was developed as a group assignment for Python for Data Science. We initially handled different features separately, resolving merge conflicts individually with each commit to the master branch (demonstrating individual knowledge).
-
-Afterward, we transitioned to working collaboratively on the compare_texts, contributing to both its testing and core functionality.
-
-Finally, we implemented the remaining features and the documentation update.
+This package was developed as a group assignment for Python for Data Science. We initially handled different features separately, resolving merge conflicts individually with each commit to the master branch (demonstrating individual knowledge). Afterward, we transitioned to working collaboratively on the compare_texts, contributing to both its testing and core functionality. Finally, we implemented the remaining features and the documentation update.
 
 ## Development Workflow
 
 Each team member worked in their own branch to implement an assigned feature, committing frequently and merging changes into the main branch through pull requests.
-Merge conflicts were intentionally resolved by individuals during integration to demonstrate understanding of Git workflows.
-
-Once the base functionalities were stable, we collaborated on a shared feature (average_word_length) and collectively refined both the implementation and its associated tests.
+Merge conflicts were intentionally resolved by individuals during integration to demonstrate understanding of Git workflows. Once the base functionalities were stable, we collaborated on a shared feature (average_word_length) and collectively refined both the implementation and its associated tests.
 
 ## Testing & Coverage
+
 Unit tests were written for every function within src/textutils/core.py to ensure correctness and robustness.
 Integration tests validated how multiple functions interacted together.
 We used pytest for testing and pytest-cov to measure coverage, aiming for 100% line coverage across the package.
@@ -102,10 +97,7 @@ pytest --cov=src/textutils --cov-report=term-missing
 was used regularly to monitor coverage and maintain testing standards.
 
 ## Collaboration Reflection
-This project emphasized effective teamwork through Git-based collaboration.
-Each member contributed independently, reviewed peers’ code, and participated in resolving issues collaboratively.
-Working together on a shared feature helped us align on coding conventions, testing practices, and documentation style.
-The experience strengthened our understanding of version control, modular code design, and test-driven development (TDD) in a group context.
+This project emphasized effective teamwork through Git-based collaboration. Each member contributed independently, reviewed peers’ code, and participated in resolving issues collaboratively. Working together on a shared feature helped us align on coding conventions, testing practices, and documentation style. The experience strengthened our understanding of version control, modular code design, and test-driven development (TDD) in a group context.
 
 ## Project Structure
 The final repository follows the expected structure:
