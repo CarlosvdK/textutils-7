@@ -42,3 +42,14 @@ def test_capitalize_sentences_starts_each_sentence_with_capital():
 
 def test_capitalize_sentences_handles_leading_whitespace():
     assert c.capitalize_sentences("   hi.  there.") == "Hi. There."
+    
+
+def test_word_lengths_maps_each_word_to_length():
+    assert c.word_lengths("hi there") == {"hi": 2, "there": 5}
+    assert c.word_lengths("hello, world!") == {"hello": 5, "world": 5}
+    text = "one   two\nthree"
+    assert c.word_lengths(text) == {"one": 3, "two": 3, "three": 5}
+    assert c.word_lengths("go go GO") == {"go": 2, "GO": 2}
+    assert c.word_lengths("") == {}
+    assert c.word_lengths("abc123 var_name") == {"abc123": 6, "var_name": 8}
+    assert c.word_lengths("café naïve") == {"café": 4, "naïve": 5}

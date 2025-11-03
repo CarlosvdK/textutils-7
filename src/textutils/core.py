@@ -1,5 +1,7 @@
 import re
 from collections import Counter
+import unicodedata
+
 
 def word_count(text: str) -> dict:
     """Return case-insensitive word frequency dictionary."""
@@ -71,4 +73,27 @@ def capitalize_sentences(text: str | None = None) -> str:
         result.append(cleaned.capitalize())
 
     return " ".join(result)
+
+
+def word_lengths(text: str | None = None) -> dict:
+    """Return a dict mapping each *distinct word as written* to its length.
+
+    Handles:
+      - punctuation (ignored)
+      - multiple whitespace / newlines
+      - digits & underscores as part of words
+      - Unicode words (e.g., café)
+      - empty/None text gracefully
+    """
+    if not text:
+        return {}
+
+    # Normalize Unicode so things like "ﬁ" and accents are consistent
+    text = unicodedata.normalize("NFKC", text)
+
+    # \w is Unicode-aware in Python 3 and includes letters, digits, and _
+    words = re.findall(r"\b\w+\b", text, flags=re.UNICODE)
+
+    # Use the words as they appear (case-sensitive) so "go" and "GO" are distinct keys
+    return {w: len(w) for w in words}
 
