@@ -159,4 +159,6 @@ def test_sentence_count_counts_terminators_period_exclaim_question():
 
 def test_sentence_count_ignores_trailing_spaces():
     assert c.sentence_count("Hello world") == 1
-    
+
+def test_average_word_length_handles_empty_as_zero():
+    assert c.average_word_length("") == 0.00
