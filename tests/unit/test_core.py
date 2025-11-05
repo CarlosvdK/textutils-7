@@ -162,3 +162,16 @@ def test_sentence_count_ignores_trailing_spaces():
 
 def test_average_word_length_handles_empty_as_zero():
     assert c.average_word_length("") == 0.00
+#Ellas test
+
+def test_replace_numbers_basic():
+    assert c.replace_numbers("I have 2 cats") == "I have two cats"
+
+def test_replace_numbers_multiple():
+    assert c.replace_numbers("Code 123") == "Code onetwothree"
+
+def test_replace_numbers_empty():
+    assert c.replace_numbers("") == ""
+    
+def test_replace_numbers_no_digits():
+    assert c.replace_numbers("hello world") == "hello world"
