@@ -175,3 +175,8 @@ def test_replace_numbers_empty():
     
 def test_replace_numbers_no_digits():
     assert c.replace_numbers("hello world") == "hello world"
+
+def test_top_n():
+    counts = {"a": 2, "b": 2, "c": 1}
+    assert c.top_n(counts, 2) == [("a", 2), ("b", 2)]
+
