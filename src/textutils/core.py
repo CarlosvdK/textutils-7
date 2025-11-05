@@ -187,9 +187,33 @@ def is_anagram(a: str, b: str) -> bool:
     return clean(a) == clean(b)
 
 
+import re
+import unicodedata
+from collections import Counter
+
 def compare_texts(text1: str, text2: str) -> float:
-    """Compute similarity ratio between two strings."""
-    return SequenceMatcher(None, text1, text2).ratio()
+    """Compare two texts ignoring case, punctuation, and apostrophes.
+    Returns a [0,1] similarity based on multiset (bag-of-words) overlap.
+    """
+    def normalize(t: str) -> list[str]:
+        if not t:
+            return []
+        t = unicodedata.normalize("NFKC", t.lower())
+        t = re.sub(r"[’']", "", t)
+        t = re.sub(r"[^\w\s]", " ", t)
+        return re.findall(r"\b\w+\b", t)
+
+    c1 = Counter(normalize(text1))
+    c2 = Counter(normalize(text2))
+
+    if not c1 and not c2:
+        return 1.0 
+    if not c1 or not c2:
+        return 0.0
+
+    inter = sum((c1 & c2).values())
+    union = sum((c1 | c2).values())
+    return inter / union
 
 def sentence_count(text: str) -> int:
     """Count number of sentences based on ., !, ?."""

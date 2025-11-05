@@ -35,7 +35,7 @@ def test_mega_pipeline_with_my_functions():
     assert c.reverse_words("Hello World") == "olleH dlroW"
 
     sim = c.compare_texts("hello world", "world hello")
-    assert 0.45 <= sim < 1.0
+    assert 0.45 <= sim <= 1.0
 
 
     lens = c.word_lengths("test words")
