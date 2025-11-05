@@ -203,3 +203,23 @@ def average_word_length(text: str) -> float:
         return 0.0
     return sum(len(w) for w in words) / len(words)
 
+#Ellas code 
+
+def replace_numbers(text: str) -> str:
+    """Replace digits with their word equivalents (0-9)."""
+    if not text:
+        return ""
+    
+    digit_map = {
+        '0': 'zero', '1': 'one', '2': 'two', '3': 'three', '4': 'four',
+        '5': 'five', '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine'
+    }
+    
+    result = ""
+    for char in text:
+        if char.isdigit():
+            result += digit_map[char]
+        else:
+            result += char
+    
+    return result
