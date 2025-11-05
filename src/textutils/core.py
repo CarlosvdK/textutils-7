@@ -250,3 +250,9 @@ def replace_numbers(text: str) -> str:
 
 def top_n(counts, n):
     return sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:n]
+
+def count_vowels(text):
+    """Count vowels (a, e, i, o, u) in a string."""
+    vowels = 'aeiou'
+    return sum(1 for char in text.lower() if char in vowels)
+

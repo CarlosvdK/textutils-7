@@ -1,4 +1,5 @@
 import textutils.core as c
+
 import pytest
 
 def test_word_count_basic():
@@ -192,3 +193,10 @@ def test_compare_ignores_punct_and_case():
 
 def test_compare_normalizes_apostrophes():
     assert c.compare_texts("Don't stop", "dont STOP") == pytest.approx(1.0)
+
+def test_count_vowels():
+    assert c.count_vowels("Hello World") == 3
+    assert c.count_vowels("Python Programming") == 4
+    assert c.count_vowels("BCDFG") == 0
+    assert c.count_vowels("AEIOUaeiou") == 10
+
