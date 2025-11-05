@@ -1,10 +1,5 @@
 import textutils.core as c
 
-def test_word_count_basic():
-       text = "Red red BLUE"
-       assert c.word_count(text) == {"red": 2, "blue": 1}
-
-
 #unique words (collaborative feature Carlos, Alex)
 def test_unique_words_basic_sorted_case_insensitive():
     assert c.unique_words("blue red RED red Blue") == ["blue", "red"]

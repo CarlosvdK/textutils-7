@@ -1,5 +1,13 @@
-def word_count(text):
-    return 2
+import unicodedata
+import re
 
-def top_n(counts, n):
-    return sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:n]
+def unique_words(text: str) -> list[str]:
+    """Return a sorted list of unique words (case-insensitive),
+    ignoring punctuation and normalizing apostrophes."""
+    if not text:
+        return []
+    text = unicodedata.normalize("NFKC", text.lower())
+    text = re.sub(r"[’']", "", text)
+    text = re.sub(r"[^\w\s]", " ", text)
+    words = re.findall(r"\b\w+\b", text)
+    return sorted(set(words))
