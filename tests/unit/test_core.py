@@ -158,4 +158,4 @@ def test_average_word_length_basic():
     assert c.average_word_length("A bb ccc") == pytest.approx(2.0)
 
 def test_average_word_length_handles_empty_as_zero():
-    assert c.average_word_length("") == 0.0
+    assert c.average_word_length("") == 0.00

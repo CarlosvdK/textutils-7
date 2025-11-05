@@ -192,7 +192,7 @@ def compare_texts(text1: str, text2: str) -> float:
     return SequenceMatcher(None, text1, text2).ratio()
 
 def average_word_length(text: str) -> float:
-    """Compute mean length of words in text."""
+    """Compute mean length of words in a text."""
     words = re.findall(r"\b\w+\b", text)
     if not words:
         return 0.0
