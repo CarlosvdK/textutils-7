@@ -147,13 +147,13 @@ def test_collapse_duplicates():
 def test_is_anagram_ignores_case_space_punct(a, b, expected):
     assert c.is_anagram(a, b) is expected
 
-def test_compare_texts_returns_ratio_between_0_and_1():
-    r1 = c.compare_texts("kitten", "sitting")
-    r2 = c.compare_texts("identical", "identical")
-    assert 0.0 <= r1 <= 1.0
-    assert r2 == 1.0
+def test_compare_texts_returns_ratio_between_0_and_1(): 
+    r1 = c.compare_texts("kitten", "sitting") 
+    r2 = c.compare_texts("identical", "identical") 
+    assert 0.0 <= r1 <= 1.0 
+    assert r2 == 1.0 
     assert r2 >= r1
-
+    
 def test_sentence_count_counts_terminators_period_exclaim_question():
     assert c.sentence_count("One. Two! Three?  Four...") == 4
 
@@ -180,3 +180,15 @@ def test_top_n():
     counts = {"a": 2, "b": 2, "c": 1}
     assert c.top_n(counts, 2) == [("a", 2), ("b", 2)]
 
+def test_compare_partial_overlap():
+    text1 = "hello world python"
+    text2 = "python programming world"
+    result = c.compare_texts(text1, text2)
+    assert 0.3 <= result <= 0.7  
+    assert c.compare_texts("abc", "xyz") < 0.5
+
+def test_compare_ignores_punct_and_case():
+    assert c.compare_texts("Hello, world!!", "world HELLO") == pytest.approx(1.0)
+
+def test_compare_normalizes_apostrophes():
+    assert c.compare_texts("Don't stop", "dont STOP") == pytest.approx(1.0)
